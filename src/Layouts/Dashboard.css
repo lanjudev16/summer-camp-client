@@ -17,7 +17,7 @@
   }
   label.btn.btn-primary.drawer-button.lg\:hidden {
     position: absolute;
-    top: 7px;
-    left: 7px;
+    top: 7%;
+    left: 8%;
     z-index: 10000000000;
 }

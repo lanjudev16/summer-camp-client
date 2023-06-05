@@ -2,6 +2,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Dashboard from "../Layouts/Dashboard";
+import DashboardContent from "../Pages/DashboardContent/DashboardContent/DashboardContent";
 
   export const router = createBrowserRouter([
     {
@@ -9,8 +10,8 @@ import Dashboard from "../Layouts/Dashboard";
         element:<Dashboard></Dashboard>,
         children:[
             {
-                path:"admin",
-                element:<div>Ami dash</div>
+                path:"/",
+                element:<DashboardContent></DashboardContent>
             }
         ]
     }

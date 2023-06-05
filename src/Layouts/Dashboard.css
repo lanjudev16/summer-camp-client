@@ -15,4 +15,9 @@
   .scroll-container::-webkit-scrollbar-thumb {
     background-color: #484D6E;
   }
-  
+  label.btn.btn-primary.drawer-button.lg\:hidden {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    z-index: 10000000000;
+}

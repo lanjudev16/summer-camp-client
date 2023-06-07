@@ -1,0 +1,15 @@
+button, select {
+    text-transform: none;
+    background: #2f3349;
+    color: #a2a6c1;
+    font-size: 15px;
+}
+ul.recharts-default-legend {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    flex-direction: column;
+    display: inline-flex;
+    justify-content: end;
+    display: flex;
+}

@@ -21,3 +21,19 @@
     left: 8%;
     z-index: 10000000000;
 }
+.avatar.online:before {
+  bottom: 7%;
+  left: 7%;
+}
+.avatar > div {
+  width: 65px;
+  height: 65px;
+}
+.indicator {
+  margin-right: 30px;
+}.top-nav-border-custom {
+  border: 2px solid #484d6e;
+}
+.drawer-mobile > .drawer-toggle ~ .drawer-content {
+  overflow-x: hidden;
+}

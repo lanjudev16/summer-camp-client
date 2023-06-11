@@ -10,6 +10,5 @@ ul.recharts-default-legend {
     text-align: center;
     flex-direction: column;
     display: inline-flex;
-    justify-content: end;
     display: flex;
 }

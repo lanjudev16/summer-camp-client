@@ -1,0 +1,12 @@
+.top-circle {
+    top: -120px;
+    right: -45px;
+}
+.bottom-circle {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    bottom: -75px;
+    left: -65px;
+    overflow: hidden;
+    overflow-y: hidden;
+}

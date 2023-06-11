@@ -8,6 +8,10 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import AddClass from "../Pages/DashboardContent/Instructor/AddClass/AddClass";
+import PrivateRoute from "./PrivateRoute";
+import ManageClass from "../Pages/DashboardContent/Admin/ManageClass/ManageClass";
+import ManageUser from "../Pages/DashboardContent/Admin/ManageUser/ManageUser";
+import FeedBack from "../Pages/DashboardContent/Admin/ManageClass/FeedBack";
 
   export const router = createBrowserRouter([
     
@@ -23,15 +27,27 @@ import AddClass from "../Pages/DashboardContent/Instructor/AddClass/AddClass";
     },
     {
         path:"/dashboard",
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
                 path:"/dashboard",
-                element:<DashboardContent></DashboardContent>
+                element:<PrivateRoute><DashboardContent></DashboardContent></PrivateRoute>
             },
             {
               path:"/dashboard/instructor/addClass",
-              element:<AddClass></AddClass>
+              element:<PrivateRoute><AddClass></AddClass></PrivateRoute>
+            },
+            {
+              path:'/dashboard/admin/ManageClass',
+              element:<PrivateRoute><ManageClass></ManageClass></PrivateRoute>
+            },
+            {
+              path:'/dashboard/admin/ManageUser',
+              element:<PrivateRoute><ManageUser></ManageUser></PrivateRoute>
+            },
+            {
+              path:"/dashboard/admin/feedback/:id",
+              element:<PrivateRoute><FeedBack></FeedBack></PrivateRoute>
             }
         ]
     },

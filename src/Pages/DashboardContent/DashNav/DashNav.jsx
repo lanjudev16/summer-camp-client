@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaBell, FaSearch } from "react-icons/fa";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const DashNav = () => {
+  const {user}=useContext(AuthContext)
   return (
     <div className="navbar bg-[#2E3248] px-6  ">
       <div className="navbar-start">
@@ -27,7 +29,7 @@ const DashNav = () => {
         </div>
         <div className="avatar online">
           <div className="w-24 h-[24]  rounded-full">
-            <img src="https://i.ibb.co/pbw8pDN/P3-OLGJ1-copy-1-removebg-preview.png" />
+            <img src={user.displayName ? user.displayName:"https://i.ibb.co/pbw8pDN/P3-OLGJ1-copy-1-removebg-preview.png"} />
           </div>
         </div>
       </div>

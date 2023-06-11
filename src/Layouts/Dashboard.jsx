@@ -20,12 +20,15 @@ import {
   FaRegStopCircle,
   FaSoundcloud,
   FaTextHeight,
+  FaUser,
 } from "react-icons/fa";
 import "./Dashboard.css";
 const Dashboard = () => {
   // is instructor
-  const isInstructor = true;
-  const isAdmin = false;
+  const isInstructor = false;
+  const isAdmin =true;
+  // const isInstructor = true;
+  // const isAdmin =false;
   return (
     <div className="drawer drawer-mobile ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -42,15 +45,17 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80">
           <div>
-            <h2 className="text-[#A2A6C1] text-2xl ">
+            <h2 className="text-[#A2A6C1] text-2xl mb-5 ">
               <span className="text-[#7367F0]">Clean</span>simple
             </h2>
-            <h4 className="text-[#A2A6C1] my-4">Admin panel</h4>
           </div>
           {isInstructor ? (
             <>
               <li>
-                <NavLink to='/dashboard/instructor/addClass' className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]">
+                <NavLink
+                  to="/dashboard/instructor/addClass"
+                  className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
+                >
                   <FaPlus></FaPlus> Add Class
                 </NavLink>
               </li>
@@ -61,7 +66,18 @@ const Dashboard = () => {
               </li>
             </>
           ) : isAdmin ? (
-            <>Admin</>
+            <>
+              <li>
+                <NavLink to='/dashboard/admin/ManageClass' className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]">
+                  <FaBook></FaBook> Manage Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/dashboard/admin/ManageUser' className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]">
+                  <FaUser></FaUser> Manage Users
+                </NavLink>
+              </li>
+            </>
           ) : (
             <>Student</>
           )}

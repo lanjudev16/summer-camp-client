@@ -3,18 +3,18 @@ import backgroundImage from "../../../public/PhotoGraphic.png";
 import backgroundImage1 from "../../../public/PhotoGraphicLeft.png";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import SingleInstructor from "./SingleInstructor";
 import Footer from "../Shared/Footer/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-const Instructor = () => {
+import SingleClass from "./SingleClass";
+const Classes = () => {
     const { loading } = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure();
     const { data, refetch } = useQuery({
-      queryKey: ["users"],
+      queryKey: ["classes"],
       enabled: !loading,
       queryFn: async () => {
-        const res = await axiosSecure(`/users`);
+        const res = await axiosSecure(`/classes`);
         return res.data;
       },
     });
@@ -49,7 +49,7 @@ const Instructor = () => {
       <div className="grid lg:grid-cols-3 gap-5 mx-[36px]">
         
         {
-            data?.map((instructor,index)=><SingleInstructor key={index} instructor={instructor} ></SingleInstructor>)
+            data?.map((singleClass,index)=><SingleClass key={index} singleClass={singleClass} ></SingleClass>)
         }
       </div>
       <Footer></Footer>
@@ -57,4 +57,4 @@ const Instructor = () => {
   );
 };
 
-export default Instructor;
+export default Classes;

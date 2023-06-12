@@ -60,7 +60,7 @@ const Header = ({handleTheme}) => {
             <NavLink to="/instructor">Instructor</NavLink>
             </li>
             <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
-              <Link>Class</Link>
+            <NavLink to="/classes">Class</NavLink>
             </li>
             {user ? (
               <>

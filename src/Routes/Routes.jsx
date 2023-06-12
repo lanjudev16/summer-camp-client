@@ -13,6 +13,7 @@ import ManageClass from "../Pages/DashboardContent/Admin/ManageClass/ManageClass
 import ManageUser from "../Pages/DashboardContent/Admin/ManageUser/ManageUser";
 import FeedBack from "../Pages/DashboardContent/Admin/ManageClass/FeedBack";
 import Instructor from "../Pages/Instructor/Instructor";
+import Classes from "../Pages/Classes/Classes";
 
   export const router = createBrowserRouter([
     
@@ -27,6 +28,10 @@ import Instructor from "../Pages/Instructor/Instructor";
         {
           path:"/instructor",
           element:<Instructor></Instructor>
+        },
+        {
+          path:"/classes",
+          element:<Classes></Classes>
         }
       ]
     },

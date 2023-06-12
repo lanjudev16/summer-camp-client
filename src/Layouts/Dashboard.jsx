@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaAssistiveListeningSystems,
   FaBars,
@@ -23,12 +23,32 @@ import {
   FaUser,
 } from "react-icons/fa";
 import "./Dashboard.css";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../hook/useAxiosSecure";
 const Dashboard = () => {
-  // is instructor
-  const isInstructor = false;
-  const isAdmin =true;
-  // const isInstructor = true;
-  // const isAdmin =false;
+  const {user,loading}=useContext(AuthContext)
+  const [axiosSecure]=useAxiosSecure()
+  const { data, refetch } = useQuery({
+    queryKey: ["users",user.email],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axiosSecure(`/users/${user.email}`);
+      return res.data;
+    },
+  });
+  let isAdmin
+  let isStudent
+  let isInstructor 
+  if(data?.UserRole==="admin"){
+   isAdmin =true;
+  }else if(data?.UserRole==="instructor"){
+   isInstructor = true;
+  }else{
+    isStudent=true
+  }
   return (
     <div className="drawer drawer-mobile ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -45,9 +65,9 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80">
           <div>
-            <h2 className="text-[#A2A6C1] text-2xl mb-5 ">
+            <Link to="/"><h2 className="text-[#A2A6C1] text-2xl mb-5 ">
               <span className="text-[#7367F0]">Clean</span>simple
-            </h2>
+            </h2></Link>
           </div>
           {isInstructor ? (
             <>
@@ -78,7 +98,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
-          ) : (
+          ) : isStudent && (
             <>Student</>
           )}
           <div className="divider bg-[#484D6E] h-[1px] "></div>

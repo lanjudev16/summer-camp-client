@@ -1,16 +1,41 @@
-import React from 'react';
-import useAxiosSecure from '../../../../hook/useAxiosSecure';
+import React from "react";
+import useAxiosSecure from "../../../../hook/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import SingleUser from "./SingleUser";
+import { useContext } from "react";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const ManageUser = () => {
-    const [axiosSecure]=useAxiosSecure()
-    axiosSecure.get('/dashboard/admin/manageUser').then(result=>{
-        console.log(result)
-    })
-    return (
-        <div>
-            
-        </div>
-    );
+  const { loading } = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
+  const { data, refetch } = useQuery({
+    queryKey: ["users"],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axiosSecure(`/users`);
+      return res.data;
+    },
+  });
+  return (
+    <div data-theme="dark" className="overflow-x-auto">
+      <table className="table table-zebra w-full">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Instructor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data?.map((user, index) => (
+            <SingleUser index={index} user={user} refetch={refetch} key={user._id}></SingleUser>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default ManageUser;

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaSun } from "react-icons/fa";
 
 const Header = ({handleTheme}) => {
   const { user,logOut } = useContext(AuthContext);
@@ -14,8 +15,8 @@ const Header = ({handleTheme}) => {
     })
   }
   return (
-    <div>
-      <div className="navbar bg-base-100 lg:w-[1140px] mx-auto">
+    <div className="w-full">
+      <div className="navbar bg-base-100  ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,10 +37,10 @@ const Header = ({handleTheme}) => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 w-full"
             >
               <li className="hover:bg-red">
-                <Link>Instructor</Link>
+                <NavLink to="/instructor">Instructor</NavLink>
               </li>
               <li>
                 <Link>Class</Link>
@@ -56,7 +57,7 @@ const Header = ({handleTheme}) => {
               <Link to="/">Home</Link>
             </li>
             <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
-              <Link>Instructor</Link>
+            <NavLink to="/instructor">Instructor</NavLink>
             </li>
             <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
               <Link>Class</Link>
@@ -73,7 +74,7 @@ const Header = ({handleTheme}) => {
                   <Link to="/login">Logout</Link>
                 </li>
                 <li  className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
-                  <button onClick={handleTheme}>toggle</button>
+                  <button className="bg-transparent text-2xl font-semibold" onClick={handleTheme}><FaSun></FaSun></button>
                 </li>
 
               </>

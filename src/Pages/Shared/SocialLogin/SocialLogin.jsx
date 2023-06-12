@@ -13,7 +13,7 @@ const SocialLogin = () => {
         googleSignIn()
         .then(result=>{
             console.log(result)
-            const saveUser={name:result.user.displayName,email:result.user.email}
+            const saveUser={name:result.user.displayName,email:result.user.email,image:result.user.photoURL}
             console.log(saveUser)
             axiosSecure.post(`/users/${result?.user?.email}`, saveUser).then((data) => {
                 if (data.data.insertedId) {

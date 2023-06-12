@@ -17,24 +17,31 @@ const ManageUser = () => {
     },
   });
   return (
-    <div data-theme="dark" className="overflow-x-auto">
-      <table className="table table-zebra w-full">
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Admin</th>
-            <th>Instructor</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data?.map((user, index) => (
-            <SingleUser index={index} user={user} refetch={refetch} key={user._id}></SingleUser>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Admin</th>
+              <th>Instructor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data?.map((user, index) => (
+              <SingleUser
+                index={index}
+                user={user}
+                refetch={refetch}
+                key={user._id}
+              ></SingleUser>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
   );
 };
 

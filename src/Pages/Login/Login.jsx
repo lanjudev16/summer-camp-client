@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Helmet } from 'react-helmet';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-
+import {
+    FaAssistiveListeningSystems, FaEye, FaEyeSlash,
+  } from "react-icons/fa";
 const Login = () => {
-
+    const [icon,setIcon]=useState(true)
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -51,11 +52,12 @@ const Login = () => {
                                 </label>
                                 <input type="email" name="email" placeholder="email" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                <input type={icon?"password":"text"} name="password" placeholder="password" className="input input-bordered" />
+                                <span className='absolute top-[40%] right-5 text-2xl' onClick={()=>setIcon(icon?false:true)}>{icon?<><FaEye></FaEye></>:<><FaEyeSlash></FaEyeSlash></>}</span>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>

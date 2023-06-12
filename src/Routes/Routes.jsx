@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import ManageClass from "../Pages/DashboardContent/Admin/ManageClass/ManageClass";
 import ManageUser from "../Pages/DashboardContent/Admin/ManageUser/ManageUser";
 import FeedBack from "../Pages/DashboardContent/Admin/ManageClass/FeedBack";
+import Instructor from "../Pages/Instructor/Instructor";
 
   export const router = createBrowserRouter([
     
@@ -22,6 +23,10 @@ import FeedBack from "../Pages/DashboardContent/Admin/ManageClass/FeedBack";
         {
           path:"/",
           element:<Home></Home>
+        },
+        {
+          path:"/instructor",
+          element:<Instructor></Instructor>
         }
       ]
     },

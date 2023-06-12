@@ -9,7 +9,7 @@ import useAxiosSecure from "../../hook/useAxiosSecure";
 
 const SignUp = () => {
   const [axiosSecure] = useAxiosSecure();
-  const {
+  const {watch,
     register,
     handleSubmit,
     reset,
@@ -21,7 +21,7 @@ const SignUp = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       updateUserProfile(data.name, data.photoURL).then(() => {
-        const saveUser = { name: data.name, email: data.email };
+        const saveUser = { name: data.name, email: data.email,image:data.photoURL };
         axiosSecure.post(`/users/${data.email}`, saveUser).then((data) => {
           if (data.data.insertedId) {
             reset();
@@ -123,6 +123,21 @@ const SignUp = () => {
                     Forgot password?
                   </a>
                 </label>
+              </div>
+              <div className="form-control">
+                <label>Confirm Password</label>
+                <input
+                  className="input input-bordered"
+                  type="password"
+                  {...register("confirmPassword", {
+                    required: true,
+                    validate: (value) =>
+                      value === watch("password") || "Passwords do not match",
+                  })}
+                />
+                <p className="text-red-600">                {errors.confirmPassword && (
+                  <span>{errors.confirmPassword.message}</span>
+                )}</p>
               </div>
               <div className="form-control mt-6">
                 <input

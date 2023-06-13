@@ -113,13 +113,13 @@ const Dashboard = () => {
                   to={`/dashboard/student/booking`}
                   className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
                 >
-                  <FaPlus></FaPlus> My Selected Classes
+                  <div className="flex items-center"><FaPlus></FaPlus><span>Selected Classes</span></div>
                 </NavLink>
                 <NavLink
                   to="/dashboard/instructor/addClass"
                   className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
                 >
-                  <FaPlus></FaPlus>My Enrolled Classes
+                  <div className="flex items-center"><FaPlus></FaPlus><span>Enrolled Classes</span></div>
                 </NavLink>
               </>
             )

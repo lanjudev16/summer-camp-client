@@ -26,12 +26,14 @@ const SingleClass = ({ singleClass }) => {
   }
 //handle booking
 const handleBooking=(id)=>{
-  axiosSecure.put(`/isBooking/${id}`).then(data=>{
-    if(data.data.matchedCount>0){
+  axiosSecure.post(`/isBooking?id=${id}&&email=${user.email}`,singleClass).then(data=>{
+    if(data.data.insertedId){
       alert('Successfully booked ')
     }
   })
 }
+
+
   return (
     <div>
       {singleClass.AvailableSeats == 0 ? (

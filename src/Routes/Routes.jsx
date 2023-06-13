@@ -15,6 +15,7 @@ import FeedBack from "../Pages/DashboardContent/Admin/ManageClass/FeedBack";
 import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
 import MyBookingClass from "../Pages/DashboardContent/Student/MyBookingClass/MyBookingClass";
+import Payment from "../Pages/DashboardContent/Student/MyBookingClass/Payment";
 
   export const router = createBrowserRouter([
     
@@ -63,6 +64,10 @@ import MyBookingClass from "../Pages/DashboardContent/Student/MyBookingClass/MyB
             {
               path:"/dashboard/student/booking/",
               element:<MyBookingClass></MyBookingClass>
+            },
+            {
+              path:"/dashboard/student/Payment",
+              element:<Payment></Payment>
             }
         ]
     },

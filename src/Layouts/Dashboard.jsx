@@ -29,25 +29,25 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../hook/useAxiosSecure";
 const Dashboard = () => {
-  const {user,loading}=useContext(AuthContext)
-  const [axiosSecure]=useAxiosSecure()
+  const { user, loading } = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   const { data, refetch } = useQuery({
-    queryKey: ["users",user.email],
+    queryKey: ["users", user.email],
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure(`/users/${user.email}`);
       return res.data;
     },
   });
-  let isAdmin
-  let isStudent
-  let isInstructor 
-  if(data?.UserRole==="admin"){
-   isAdmin =true;
-  }else if(data?.UserRole==="instructor"){
-   isInstructor = true;
-  }else{
-    isStudent=true
+  let isAdmin;
+  let isStudent;
+  let isInstructor;
+  if (data?.UserRole === "admin") {
+    isAdmin = true;
+  } else if (data?.UserRole === "instructor") {
+    isInstructor = true;
+  } else {
+    isStudent = true;
   }
   return (
     <div className="drawer drawer-mobile ">
@@ -65,9 +65,11 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80">
           <div>
-            <Link to="/"><h2 className="text-[#A2A6C1] text-2xl mb-5 ">
-              <span className="text-[#7367F0]">Clean</span>simple
-            </h2></Link>
+            <Link to="/">
+              <h2 className="text-[#A2A6C1] text-2xl mb-5 ">
+                <span className="text-[#7367F0]">Clean</span>simple
+              </h2>
+            </Link>
           </div>
           {isInstructor ? (
             <>
@@ -88,18 +90,39 @@ const Dashboard = () => {
           ) : isAdmin ? (
             <>
               <li>
-                <NavLink to='/dashboard/admin/ManageClass' className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]">
+                <NavLink
+                  to="/dashboard/admin/ManageClass"
+                  className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
+                >
                   <FaBook></FaBook> Manage Classes
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/admin/ManageUser' className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]">
+                <NavLink
+                  to="/dashboard/admin/ManageUser"
+                  className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
+                >
                   <FaUser></FaUser> Manage Users
                 </NavLink>
               </li>
             </>
-          ) : isStudent && (
-            <>Student</>
+          ) : (
+            isStudent && (
+              <>
+                <NavLink
+                  to={`/dashboard/student/booking`}
+                  className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
+                >
+                  <FaPlus></FaPlus> My Selected Classes
+                </NavLink>
+                <NavLink
+                  to="/dashboard/instructor/addClass"
+                  className="text-[#A2A6C1]  p-3 bg-transparent text-lg hover:bg-[#6B62D0] hover:text-[#FFFFFF]"
+                >
+                  <FaPlus></FaPlus>My Enrolled Classes
+                </NavLink>
+              </>
+            )
           )}
           <div className="divider bg-[#484D6E] h-[1px] "></div>
           <h2 className="text-[#A2A6C1]  p-3 bg-transparent  text-lg">

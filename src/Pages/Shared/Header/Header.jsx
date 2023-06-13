@@ -15,9 +15,9 @@ const Header = ({handleTheme}) => {
     })
   }
   return (
-    <div className="w-full">
-      <div className="navbar bg-base-100  ">
-        <div className="navbar-start">
+    <div className="mx-[36px]">
+      <div className="navbar bg-base-100 justify-between ">
+        <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg

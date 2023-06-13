@@ -24,7 +24,14 @@ const SingleClass = ({ singleClass }) => {
   } else {
     isStudent = true;
   }
-
+//handle booking
+const handleBooking=(id)=>{
+  axiosSecure.put(`/isBooking/${id}`).then(data=>{
+    if(data.data.matchedCount>0){
+      alert('Successfully booked ')
+    }
+  })
+}
   return (
     <div>
       {singleClass.AvailableSeats == 0 ? (
@@ -74,7 +81,7 @@ const SingleClass = ({ singleClass }) => {
                   </>
                 ) : (
                   <>
-                    <button className="btn btn-danger">Select</button>
+                    <button  className="btn btn-danger">Select</button>
                   </>
                 )}
               </div>
@@ -128,7 +135,7 @@ const SingleClass = ({ singleClass }) => {
                   </>
                 ) : (
                   <>
-                    <button className="btn btn-danger">Select</button>
+                    <button onClick={()=>handleBooking(singleClass._id)} className="btn btn-danger">Select</button>
                   </>
                 )}
               </div>

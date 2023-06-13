@@ -14,6 +14,7 @@ import ManageUser from "../Pages/DashboardContent/Admin/ManageUser/ManageUser";
 import FeedBack from "../Pages/DashboardContent/Admin/ManageClass/FeedBack";
 import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
+import MyBookingClass from "../Pages/DashboardContent/Student/MyBookingClass/MyBookingClass";
 
   export const router = createBrowserRouter([
     
@@ -58,6 +59,10 @@ import Classes from "../Pages/Classes/Classes";
             {
               path:"/dashboard/admin/feedback/:id",
               element:<PrivateRoute><FeedBack></FeedBack></PrivateRoute>
+            },
+            {
+              path:"/dashboard/student/booking/",
+              element:<MyBookingClass></MyBookingClass>
             }
         ]
     },

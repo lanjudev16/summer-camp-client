@@ -34,7 +34,7 @@ const MyBookingClass = () => {
         <tbody>
            {bookingData?.map((bookingClass,index) => (
             <>
-              <tr>
+              <tr >
                 <th>
                   {index+1}
                 </th>
@@ -59,7 +59,7 @@ const MyBookingClass = () => {
                   <button className="btn btn-ghost btn-xs">Delete</button>
                 </th>
                 <th>
-                  <Link to="/dashboard/student/Payment"><button className="btn btn-ghost btn-xs">Pay</button></Link>
+                  <Link  to={`/dashboard/student/Payment/${bookingClass._id}`}><button className="btn btn-ghost btn-xs">Pay</button></Link>
                 </th>
               </tr>
             </>

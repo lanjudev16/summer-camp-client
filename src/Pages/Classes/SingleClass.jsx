@@ -7,10 +7,10 @@ const SingleClass = ({ singleClass }) => {
   const { user, loading } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const { data, refetch } = useQuery({
-    queryKey: ["users", user.email],
+    queryKey: ["users", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure(`/users/${user.email}`);
+      const res = await axiosSecure(`/users/${user?.email}`);
       return res.data;
     },
   });
@@ -26,8 +26,8 @@ const SingleClass = ({ singleClass }) => {
   }
 //handle booking
 const handleBooking=(id)=>{
-  axiosSecure.post(`/isBooking?id=${id}&&email=${user.email}`,singleClass).then(data=>{
-    if(data.data.insertedId){
+  axiosSecure.post(`/isBooking?id=${id}&&email=${user?.email}`,singleClass).then(data=>{
+    if(data?.data?.insertedId){
       alert('Successfully booked ')
     }
   })

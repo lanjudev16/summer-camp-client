@@ -66,7 +66,7 @@ import Payment from "../Pages/DashboardContent/Student/MyBookingClass/Payment";
               element:<MyBookingClass></MyBookingClass>
             },
             {
-              path:"/dashboard/student/Payment",
+              path:"/dashboard/student/Payment/:id",
               element:<Payment></Payment>
             }
         ]

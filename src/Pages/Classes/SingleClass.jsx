@@ -50,16 +50,16 @@ const handleBooking=(id)=>{
             <div className="card-body items-center text-center">
               <div className="flex justify-between w-full">
                 <h2 className="card-title text-white">
-                  {singleClass.ClassName}
+                  Class Name: {singleClass.ClassName}
                 </h2>
-                <h2 className="card-title text-white">{singleClass.Price}</h2>
+                 <h2 className="card-title text-white">Price: {singleClass.Price}</h2>
               </div>
               <div className="flex justify-between w-full">
                 <p className="text-white text-left">
-                  {singleClass.InstructorName}
+                 Instructor Name: {singleClass.InstructorName}
                 </p>
                 <p className="text-white text-right">
-                  {singleClass.AvailableSeats}
+                 Available Seats {singleClass.AvailableSeats}
                 </p>
               </div>
               <div className="card-actions">
@@ -106,14 +106,14 @@ const handleBooking=(id)=>{
                 <h2 className="card-title text-white">
                   {singleClass.ClassName}
                 </h2>
-                <h2 className="card-title text-white">{singleClass.Price}</h2>
+                <h2 className="card-title text-white">Price :{singleClass.Price}</h2>
               </div>
               <div className="flex justify-between w-full">
                 <p className="text-white text-left">
-                  {singleClass.InstructorName}
+                  Instructor Name: {singleClass.InstructorName}
                 </p>
                 <p className="text-white text-right">
-                  {singleClass.AvailableSeats}
+                  Available Seats {singleClass.AvailableSeats}
                 </p>
               </div>
               <div className="card-actions">
@@ -129,7 +129,7 @@ const handleBooking=(id)=>{
                       Select
                     </button>
                   </>
-                ) : singleClass.AvailableSeats == 0 ? (
+                ) : singleClass.AvailableSeats <=0? (
                   <>
                     <button disabled={true} className="btn btn-danger">
                       Select
@@ -137,7 +137,7 @@ const handleBooking=(id)=>{
                   </>
                 ) : (
                   <>
-                    <button onClick={()=>handleBooking(singleClass._id)} className="btn btn-danger">Select</button>
+                    <button  onClick={()=>handleBooking(singleClass._id)} className="btn btn-danger mt-5">Select</button>
                   </>
                 )}
               </div>

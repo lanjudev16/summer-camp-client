@@ -6,8 +6,9 @@ const SingleInstructor = ({instructor}) => {
       <figure className="px-10 pt-10">
         <img
           src={instructor.image}
+
           alt="Instructor"
-          className="rounded-xl "
+          className="rounded-xl w-full object-cover h-[300px]"
         />
       </figure>
       <div className="card-body items-center text-center">

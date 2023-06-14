@@ -12,12 +12,14 @@ import Success from '../Success/Success';
 import PhotoGraphy from '../PhotoGraphy/PhotoGraphy';
 import GrouFrelencing from '../GrouFrelencing/GrouFrelencing';
 import Footer from '../../Shared/Footer/Footer';
+import PopularSection from '../PopularSection/PopularSection';
 
 const Home = () => {
     return (
         <div className='overflow-hidden'>
            <Banner></Banner>
            <CreativePlatForm></CreativePlatForm>
+           <PopularSection></PopularSection>
            <FindTrustedAssociate></FindTrustedAssociate>
            <OurFeaturedServices></OurFeaturedServices>
            <GraphicsServices></GraphicsServices>
@@ -29,6 +31,7 @@ const Home = () => {
            <PhotoGraphy></PhotoGraphy>
            <GrouFrelencing></GrouFrelencing>
            <Footer></Footer>
+           
         </div>
     );
 };

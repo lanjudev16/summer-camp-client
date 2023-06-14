@@ -17,13 +17,13 @@ const Payment = () => {
             return res.data
         }
     })
-    const price=parseFloat((paymentData?.body?.Price).toFixed(2))
+    const price=((paymentData?.body?.Price))
     const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
     return (
         <div>
             <h1 className='ml-6 mt-5 text-success text-xl'>Payment gateway implement</h1>
             <Elements stripe={stripePromise}>
-                <CheckoutForm Price={price}></CheckoutForm>
+                <CheckoutForm id={id} paymentData={paymentData} Price={price}></CheckoutForm>
             </Elements>
         </div>
     );

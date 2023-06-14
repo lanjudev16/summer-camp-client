@@ -3,6 +3,7 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 import useAxiosSecure from "../../../../hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import MySIngleBooking from "./MySIngleBooking";
 
 const MyBookingClass = () => {
   const { user, loading } = useContext(AuthContext);
@@ -32,38 +33,7 @@ const MyBookingClass = () => {
           </tr>
         </thead>
         <tbody>
-           {bookingData?.map((bookingClass,index) => (
-            <>
-              <tr >
-                <th>
-                  {index+1}
-                </th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src={bookingClass?.body?.image}
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  {bookingClass?.body?.ClassName}
-                </td>
-                <td>{bookingClass?.body?.Price}</td>
-                <td>{bookingClass?.body?.AvailableSeats}</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">Delete</button>
-                </th>
-                <th>
-                  <Link  to={`/dashboard/student/Payment/${bookingClass._id}`}><button className="btn btn-ghost btn-xs">Pay</button></Link>
-                </th>
-              </tr>
-            </>
-          ))} 
+           {bookingData?.map((bookingClass,index) =><MySIngleBooking bookingClass={bookingClass} key={index} index={index}></MySIngleBooking>)} 
         </tbody>
       </table>
     </div>

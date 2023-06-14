@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../../hook/useAxiosSecure";
 import useAuth from "../../../../hook/useAuth";
 import { useNavigate } from "react-router-dom";
 
-const CheckoutForm = ({ Price }) => {
+const CheckoutForm = ({ Price,id,paymentData }) => {
   const navigate=useNavigate()
   const [tranSectionId, setTranSectionId] = useState("");
   const { user } = useAuth();
@@ -69,8 +69,19 @@ const CheckoutForm = ({ Price }) => {
     if (paymentIntent.status==="succeeded") {
       console.log(paymentIntent);
       setTranSectionId(paymentIntent.id)
-      alert('successfully payment complete')
-      navigate('/dashboard/student/booking')
+      const body={
+        paymentData,
+        id,
+        email:user?.email,
+        name:user?.displayName
+      }
+      axiosSecure.post('/dashboard/student/payment',body).then(data=>{
+        if(data){
+          console.log(data)
+          alert('successfully payment complete')
+          navigate('/dashboard/student/booking')
+        }
+      })
 
     }
   };

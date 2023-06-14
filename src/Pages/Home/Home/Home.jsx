@@ -13,6 +13,7 @@ import PhotoGraphy from '../PhotoGraphy/PhotoGraphy';
 import GrouFrelencing from '../GrouFrelencing/GrouFrelencing';
 import Footer from '../../Shared/Footer/Footer';
 import PopularSection from '../PopularSection/PopularSection';
+import PopularInstructor from '../PopularInstructor/PopularInstructor';
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
            <Banner></Banner>
            <CreativePlatForm></CreativePlatForm>
            <PopularSection></PopularSection>
+           <PopularInstructor></PopularInstructor>
            <FindTrustedAssociate></FindTrustedAssociate>
            <OurFeaturedServices></OurFeaturedServices>
            <GraphicsServices></GraphicsServices>

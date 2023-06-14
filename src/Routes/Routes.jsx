@@ -16,6 +16,7 @@ import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
 import MyBookingClass from "../Pages/DashboardContent/Student/MyBookingClass/MyBookingClass";
 import Payment from "../Pages/DashboardContent/Student/MyBookingClass/Payment";
+import MyEnrollClass from "../Pages/DashboardContent/Student/MyEnrollClass/MyEnrollClass";
 
   export const router = createBrowserRouter([
     
@@ -68,6 +69,10 @@ import Payment from "../Pages/DashboardContent/Student/MyBookingClass/Payment";
             {
               path:"/dashboard/student/Payment/:id",
               element:<Payment></Payment>
+            },
+            {
+              path:"/dashboard/student/myEnrollClass",
+              element:<MyEnrollClass></MyEnrollClass>
             }
         ]
     },

@@ -45,7 +45,7 @@ const Classes = () => {
           </div>
         </div>
       </div>
-      <h2 className="text-center text-2xl uppercase font-extrabold">All user</h2>
+      <h2 className="text-center text-2xl uppercase font-extrabold">All Class</h2>
       <div className="grid lg:grid-cols-3 gap-5 mx-[36px]">
         
         {

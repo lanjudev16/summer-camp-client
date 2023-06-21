@@ -1,7 +1,8 @@
 import React from 'react';
 
 const MySingleEnrollClass = ({singleClassEnroll}) => {
-    const singleClass=singleClassEnroll.paymentData.body
+    const singleClass=singleClassEnroll.body.paymentData.body
+    console.log(singleClass)
     return (
         <div className="card w-full bg-[#141937]  shadow-xl my-5">
           <figure className="px-10 pt-10">
@@ -24,7 +25,7 @@ const MySingleEnrollClass = ({singleClassEnroll}) => {
                 Instructor Name: {singleClass.InstructorName}
               </p>
               <p className="text-white text-right">
-                Available Seats {singleClass.AvailableSeats}
+                Available Seats {singleClassEnroll.AvailableSeats}
               </p>
             </div>
             <div className="card-actions">

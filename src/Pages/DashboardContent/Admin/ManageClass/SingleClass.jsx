@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SingleClass = ({ classItem, index }) => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -15,7 +16,13 @@ const SingleClass = ({ classItem, index }) => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("Update");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Update',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       });
     setIsButtonDisabled(true);
@@ -32,7 +39,13 @@ const SingleClass = ({ classItem, index }) => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("Update");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Data update',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       });
     setIsButtonDisabled(true);

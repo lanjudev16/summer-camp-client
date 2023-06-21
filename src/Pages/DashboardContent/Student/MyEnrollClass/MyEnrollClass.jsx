@@ -15,6 +15,7 @@ const MyEnrollClass = () => {
       return res.data;
     },
   });
+  console.log(data)
   return (
     <div>
       <div className="grid lg:grid-cols-3 mx-9 gap-5">

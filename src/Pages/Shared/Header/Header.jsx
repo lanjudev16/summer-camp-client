@@ -48,11 +48,11 @@ const Header = ({handleTheme}) => {
             </ul>
           </div>
           <span>
-            <img src="logo.png" className="h-[55px] w-[114px]" alt="" />
+            <img src="FliqaIndia-Logo1.png" className="h-[55px] w-[114px]" alt="" />
           </span>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className=" menu-horizontal px-1 gap-5">
+          <ul className=" menu-horizontal px-1 gap-5 items-center ">
             <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
               <Link to="/">Home</Link>
             </li>
@@ -68,7 +68,7 @@ const Header = ({handleTheme}) => {
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
-                  <Link to="/dashboard"><img className="h-[25px] w-[25px] rounded-[100%]" src={user?.photoURL} alt="" /></Link>
+                  <Link to="/dashboard"><img className="h-[50px] min-w-[50px] rounded-[100%]" src={user?.photoURL} alt="" /></Link>
                 </li>
                 <li onClick={handleLogOut} className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
                   <Link to="/login">Logout</Link>

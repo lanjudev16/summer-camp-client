@@ -17,6 +17,8 @@ import Classes from "../Pages/Classes/Classes";
 import MyBookingClass from "../Pages/DashboardContent/Student/MyBookingClass/MyBookingClass";
 import Payment from "../Pages/DashboardContent/Student/MyBookingClass/Payment";
 import MyEnrollClass from "../Pages/DashboardContent/Student/MyEnrollClass/MyEnrollClass";
+import ErrorPage from "../Pages/ErrorPage";
+import MyClasses from "../Pages/Instructor/MyClasses/MyClasses";
 
   export const router = createBrowserRouter([
     
@@ -64,7 +66,7 @@ import MyEnrollClass from "../Pages/DashboardContent/Student/MyEnrollClass/MyEnr
             },
             {
               path:"/dashboard/student/booking/",
-              element:<MyBookingClass></MyBookingClass>
+              element:<PrivateRoute><MyBookingClass></MyBookingClass></PrivateRoute>
             },
             {
               path:"/dashboard/student/Payment/:id",
@@ -72,7 +74,11 @@ import MyEnrollClass from "../Pages/DashboardContent/Student/MyEnrollClass/MyEnr
             },
             {
               path:"/dashboard/student/myEnrollClass",
-              element:<MyEnrollClass></MyEnrollClass>
+              element:<PrivateRoute><MyEnrollClass></MyEnrollClass></PrivateRoute>
+            },
+            {
+              path:"/dashboard/student/instructorAllClasses",
+              element:<MyClasses></MyClasses>
             }
         ]
     },
@@ -84,4 +90,8 @@ import MyEnrollClass from "../Pages/DashboardContent/Student/MyEnrollClass/MyEnr
       path:"/signup",
       element:<SignUp></SignUp>
     },
+    {
+      path:"*",
+      element:<ErrorPage></ErrorPage>
+    }
   ]);

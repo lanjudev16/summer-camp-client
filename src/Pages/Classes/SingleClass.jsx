@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const SingleClass = ({ singleClass }) => {
   const { user, loading } = useContext(AuthContext);
@@ -24,15 +25,22 @@ const SingleClass = ({ singleClass }) => {
   } else {
     isStudent = true;
   }
-//handle booking
-const handleBooking=(id)=>{
-  axiosSecure.post(`/isBooking?id=${id}&&email=${user?.email}`,singleClass).then(data=>{
-    if(data?.data?.insertedId){
-      alert('Successfully booked ')
-    }
-  })
-}
-
+  //handle booking
+  const handleBooking = (id) => {
+    axiosSecure
+      .post(`/isBooking?id=${id}&&email=${user?.email}`, singleClass)
+      .then((data) => {
+        if (data?.data?.insertedId) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Successfully booking complete',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      });
+  };
 
   return (
     <div>
@@ -52,14 +60,16 @@ const handleBooking=(id)=>{
                 <h2 className="card-title text-white">
                   Class Name: {singleClass.ClassName}
                 </h2>
-                 <h2 className="card-title text-white">Price: {singleClass.Price}</h2>
+                <h2 className="card-title text-white">
+                  Price: {singleClass.Price}
+                </h2>
               </div>
               <div className="flex justify-between w-full">
                 <p className="text-white text-left">
-                 Instructor Name: {singleClass.InstructorName}
+                  Instructor Name: {singleClass.InstructorName}
                 </p>
                 <p className="text-white text-right">
-                 Available Seats {singleClass.AvailableSeats}
+                  Available Seats {singleClass.AvailableSeats}
                 </p>
               </div>
               <div className="card-actions">
@@ -83,7 +93,7 @@ const handleBooking=(id)=>{
                   </>
                 ) : (
                   <>
-                    <button  className="btn btn-danger">Select</button>
+                    <button className="btn btn-danger">Select</button>
                   </>
                 )}
               </div>
@@ -106,7 +116,9 @@ const handleBooking=(id)=>{
                 <h2 className="card-title text-white">
                   {singleClass.ClassName}
                 </h2>
-                <h2 className="card-title text-white">Price :{singleClass.Price}</h2>
+                <h2 className="card-title text-white">
+                  Price :{singleClass.Price}
+                </h2>
               </div>
               <div className="flex justify-between w-full">
                 <p className="text-white text-left">
@@ -129,7 +141,7 @@ const handleBooking=(id)=>{
                       Select
                     </button>
                   </>
-                ) : singleClass.AvailableSeats <=0? (
+                ) : singleClass.AvailableSeats <= 0 ? (
                   <>
                     <button disabled={true} className="btn btn-danger">
                       Select
@@ -137,7 +149,24 @@ const handleBooking=(id)=>{
                   </>
                 ) : (
                   <>
-                    <button  onClick={()=>handleBooking(singleClass._id)} className="btn btn-danger mt-5">Select</button>
+                    <button
+                      onClick={() =>
+                        user
+                          ? handleBooking(singleClass._id)
+                          : Swal.fire({
+                              title: "Login first ",
+                              showClass: {
+                                popup: "animate__animated animate__fadeInDown",
+                              },
+                              hideClass: {
+                                popup: "animate__animated animate__fadeOutUp",
+                              },
+                            })
+                      }
+                      className="btn btn-danger mt-5"
+                    >
+                      Select course
+                    </button>
                   </>
                 )}
               </div>

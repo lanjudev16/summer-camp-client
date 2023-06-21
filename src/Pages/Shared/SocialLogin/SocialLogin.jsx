@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const [axiosSecure]=useAxiosSecure()
@@ -17,7 +18,13 @@ const SocialLogin = () => {
             console.log(saveUser)
             axiosSecure.post(`/users/${result?.user?.email}`, saveUser).then((data) => {
                 if (data.data.insertedId) {
-                  alert("Data Insert");
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Data successfully insert',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
                   navigate("/");
                 }
               });

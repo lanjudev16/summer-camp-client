@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../../../hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 
-const MySIngleBooking = ({bookingClass,index}) => {
+const MySIngleBooking = ({bookingClass,index,handleDeleteBooking}) => {
     
+
     const [axiosSecure]=useAxiosSecure()
     const {data:paymentSuccessData,refetch}=useQuery({
         queryKey:['paymentSuccessData'],
@@ -13,9 +14,7 @@ const MySIngleBooking = ({bookingClass,index}) => {
             return res.data
         }
     })
-    // if(paymentSuccessData.deletedCount>0){
-    //     refetch()
-    // }
+
     return (
         <>
         <tr >
@@ -40,7 +39,7 @@ const MySIngleBooking = ({bookingClass,index}) => {
           <td>{bookingClass?.body?.Price}</td>
           <td>{bookingClass?.body?.AvailableSeats}</td>
           <th>
-            <button className="btn btn-ghost btn-xs">Delete</button>
+            <button className="btn btn-ghost btn-xs" onClick={()=>handleDeleteBooking(bookingClass._id)}>Delete</button>
           </th>
           <th>
             <Link  to={`/dashboard/student/Payment/${bookingClass._id}`}><button className="btn btn-ghost btn-xs">Pay</button></Link>

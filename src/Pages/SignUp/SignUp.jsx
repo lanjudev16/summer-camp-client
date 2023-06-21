@@ -25,7 +25,13 @@ const SignUp = () => {
         axiosSecure.post(`/users/${data.email}`, saveUser).then((data) => {
           if (data.data.insertedId) {
             reset();
-            alert("Data Insert");
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Successfully Sign up',
+              showConfirmButton: false,
+              timer: 1500
+            })
             navigate("/");
           }
         });

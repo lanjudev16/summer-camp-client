@@ -1,21 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import useAxiosSecure from "../../../../hook/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
+import { useQuery,useQueryClient  } from "@tanstack/react-query";
 import MySIngleBooking from "./MySIngleBooking";
-
 const MyBookingClass = () => {
-  const { user, loading } = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
-  //booking
-  const { data: bookingData, refetch: bookingRefetch } = useQuery({
-    queryKey: ["booking", user.email],
-    queryFn: async () => {
-      const res = await axiosSecure(`/isBooking/${user?.email}`);
-      return res.data;
-    },
-  });
+  //delete
+  const handleDeleteBooking=(id)=>{
+    axiosSecure.delete(`/bookingDelete/${id}`);
+  }
+  // state
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    fetch(`http://localhost:5000/isBooking/${user?.email}`).then(res=>res.json()).then(data=>{
+      setData(data)
+    })
+  },[handleDeleteBooking])
   return (
     <div className="overflow-x-auto w-full "data-theme="dark">
       <table className="table w-full">
@@ -33,7 +34,7 @@ const MyBookingClass = () => {
           </tr>
         </thead>
         <tbody>
-           {bookingData?.map((bookingClass,index) =><MySIngleBooking bookingClass={bookingClass} key={index} index={index}></MySIngleBooking>)} 
+           {data?.map((bookingClass,index) =><MySIngleBooking handleDeleteBooking={handleDeleteBooking} bookingClass={bookingClass} key={index} index={index}></MySIngleBooking>)} 
         </tbody>
       </table>
     </div>

@@ -1,15 +1,16 @@
 import React from 'react';
-
+import { Fade } from "react-awesome-reveal";
 const CreativePlatForm = () => {
     return (
         <div>
-            <h2 className='text-[64px] text-center font-bold mt-[22px]'>India’s Leading Creative Platform</h2>
+            <h2 className='text-[64px] text-center font-bold mt-[22px]'>Leading Creative Platform</h2>
             <p className='text-[32px] font-light text-[#4C696D] text-center mb-[32px]'>Experience hassles free bookings.Trusted by 2500+ customer</p>
             <div className='text-center mb-[53px] lg:w-[900px] mx-auto relative'>
                 <input  className=' text-[#000000] border-[#000000] border-[1px]   text-center focus:outline-none w-[100%] h-[51px] rounded-3xl text-[24px]' type="text" name="" placeholder='Search service,blog and many more' id=""  />
                 <button className='bg-[#000000] text-[#FFF] absolute right-0 top-0 text-[24px] font-normal w-[227px] h-[51px] rounded-3xl'>Search</button>
             </div>
             <div className='grid lg:grid-cols-4 mx-[36px]  my-[36px]'>
+                <Fade cascade >
                 <div className='flex items-center gap-5'>
                     <img src="review.png" alt="" />
                     <div>
@@ -17,6 +18,7 @@ const CreativePlatForm = () => {
                     <h4 className='font-light text-base text-black'>For verified reviewers</h4>
                     </div>
                 </div>
+                </Fade>
                 <div className='flex items-center gap-5'>
                     <img src="TopArticle.png" alt="" />
                     <div>

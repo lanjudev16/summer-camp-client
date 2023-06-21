@@ -12,10 +12,11 @@ const ManageUser = () => {
     queryKey: ["users"],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure(`/users`);
+      const res = await axiosSecure(`/users/admin`);
       return res.data;
     },
   });
+  console.log(data)
   return (
     
       <div className="overflow-x-auto "data-theme="dark">

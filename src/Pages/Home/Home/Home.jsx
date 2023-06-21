@@ -14,10 +14,15 @@ import GrouFrelencing from '../GrouFrelencing/GrouFrelencing';
 import Footer from '../../Shared/Footer/Footer';
 import PopularSection from '../PopularSection/PopularSection';
 import PopularInstructor from '../PopularInstructor/PopularInstructor';
-
+import Helmet from "react-helmet"
 const Home = () => {
     return (
         <div className='overflow-hidden'>
+            <Helmet>
+                <title>
+                    Fliqindia | Home
+                </title>
+            </Helmet>
            <Banner></Banner>
            <CreativePlatForm></CreativePlatForm>
            <PopularSection></PopularSection>

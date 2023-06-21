@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hook/useAxiosSecure";
 import useAuth from "../../../../hook/useAuth";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ Price,id,paymentData }) => {
   const navigate=useNavigate()
@@ -14,11 +15,13 @@ const CheckoutForm = ({ Price,id,paymentData }) => {
   const [err, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   useEffect(() => {
+  if(Price){
     axiosSecure.post("/create-payment-intent", { Price }).then((res) => {
       console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret);
     });
-  }, []);
+  }
+  }, [Price]);
   const handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault();
@@ -78,7 +81,13 @@ const CheckoutForm = ({ Price,id,paymentData }) => {
       axiosSecure.post('/dashboard/student/payment',body).then(data=>{
         if(data){
           console.log(data)
-          alert('successfully payment complete')
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Successfully payment complete',
+            showConfirmButton: false,
+            timer: 1500
+          })
           navigate('/dashboard/student/booking')
         }
       })

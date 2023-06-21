@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import useAxiosSecure from "../../../../hook/useAxiosSecure";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const SingleUser = ({ index, user,refetch }) => {
   const [axiosSecure] = useAxiosSecure();
@@ -10,7 +11,13 @@ const SingleUser = ({ index, user,refetch }) => {
     axiosSecure.put(`/dashboard/admin/userRole/admin/${id}`).then((res) => {
         
       if (res.data.modifiedCount > 0) {
-        alert("Data update");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Data update',
+          showConfirmButton: false,
+          timer: 1500
+        })
         setDisableAdmin(isDisableAdmin?false:true);
         refetch()
       }
@@ -22,7 +29,13 @@ const SingleUser = ({ index, user,refetch }) => {
       .put(`/dashboard/admin/userRole/instructor/${id}`)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
-          alert("Data update");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Update',
+            showConfirmButton: false,
+            timer: 1500
+          })
           setDisableInstructor(isDisableInstructor?false:true);
           refetch()
         }

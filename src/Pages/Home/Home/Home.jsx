@@ -15,6 +15,7 @@ import Footer from '../../Shared/Footer/Footer';
 import PopularSection from '../PopularSection/PopularSection';
 import PopularInstructor from '../PopularInstructor/PopularInstructor';
 import Helmet from "react-helmet"
+import BannerBottom from '../BannerBottom/BannerBottom';
 const Home = () => {
     return (
         <div className='overflow-hidden'>
@@ -24,19 +25,9 @@ const Home = () => {
                 </title>
             </Helmet>
            <Banner></Banner>
-           <CreativePlatForm></CreativePlatForm>
+           <BannerBottom></BannerBottom>
            <PopularSection></PopularSection>
            <PopularInstructor></PopularInstructor>
-           <FindTrustedAssociate></FindTrustedAssociate>
-           <OurFeaturedServices></OurFeaturedServices>
-           <GraphicsServices></GraphicsServices>
-           <OurBlog></OurBlog>
-           <RealWedding></RealWedding>
-           <Testimonials></Testimonials>
-           <CoupleChoice></CoupleChoice>
-           <Success></Success>
-           <PhotoGraphy></PhotoGraphy>
-           <GrouFrelencing></GrouFrelencing>
            <Footer></Footer>
            
         </div>

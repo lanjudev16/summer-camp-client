@@ -1,39 +1,36 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import { FaCalendar, FaUser } from "react-icons/fa";
 
 const SinglePopularClass = ({ singleClass }) => {
   return (
-    <Fade >
-      
+    <Fade>
       <div>
-        <div className="card w-full bg-[#ddf8f3]  shadow-xl my-5">
-          <figure className="px-10 pt-10">
-            <img
-              src={singleClass.image}
-              alt="ClassName"
-              className="rounded-xl min-w-full
-          max-w-full min-h-[250px] max-h-[250px] object-cover"
-            />
-          </figure>
-          <div className="card-body items-center text-center">
-            <div className="flex justify-between w-full">
-              <h2 className="card-title text-[#4c696d] font-medium">
+        <div className="card w-full bg-white   shadow-lg my-5 py-8 px-3">
+          <img
+            src={singleClass.image}
+            alt="ClassName"
+            className="rounded-xl px-3 object-cover"
+          />
+          <div className="px-3">
+            <div>
+              <h2 className="text-[#413960] text-2xl mt-2 font-medium">
                 {singleClass.ClassName}
               </h2>
-              <h2 className="card-title text-[#4c696d] font-medium">
-                Price :{singleClass.Price}
-              </h2>
+              <p className="text-base text-[#585859]">
+                {singleClass.InstructorName}
+              </p>
             </div>
+            <button className="bg-[#21B573] px-5 my-3 py-2 rounded-full text-[12px] text-white">
+              Buy Course
+            </button>
             <div className="flex justify-between w-full">
-              <p className="text-[#4c696d] font-medium text-left">
-                Instructor Name: {singleClass.InstructorName}
+              <p className="text-[#4c696d] font-medium text-right flex items-center gap-3">
+                <FaCalendar></FaCalendar> {singleClass.date}
               </p>
-              <p className="text-[#4c696d] font-medium text-right">
-                Available Seats {singleClass.AvailableSeats}
+              <p className="flex items-center gap-3">
+                <FaUser></FaUser> {singleClass.AvailableSeats}
               </p>
-            </div>
-            <div className="card-actions">
-              <button className="btn bg-[#4c696d] mt-5">Select</button>
             </div>
           </div>
         </div>

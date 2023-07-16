@@ -130,7 +130,7 @@ const AddClass = () => {
           <input
             type="text"
             {...register("status")}
-            className="file-input file-input-bordered w-full disabled"
+            className="file-input file-input-bordered w-full disabled ps-5"
             value="pending"
           />
         </div>

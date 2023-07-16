@@ -15,8 +15,9 @@ const Header = ({handleTheme}) => {
     })
   }
   return (
-    <div className="mx-[36px]">
-      <div className="navbar bg-base-100 justify-between ">
+    <div className="bg-[#F0FFF0]">
+    <div className="lg:w-[1140px] mx-auto bg-[#F0FFF0]">
+      <div className="navbar bg-transparent justify-between ">
         <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,40 +49,37 @@ const Header = ({handleTheme}) => {
             </ul>
           </div>
           <span>
-            <img src="FliqaIndia-Logo1.png" className="h-[55px] w-[114px]" alt="" />
+            <img src="E-school.png" className="h-[59px] w-[200px] " alt="" />
           </span>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className=" menu-horizontal px-1 gap-5 items-center ">
-            <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+          <ul className=" menu-horizontal px-1 gap-5 items-center text-[#000000] ">
+            <li className="hover:text-[rgb(37,180,123)] rounded text-base font-medium uppercase">
               <Link to="/">Home</Link>
             </li>
-            <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+            <li className="hover:text-[rgb(37,180,123)] rounded text-base font-medium uppercase">
             <NavLink to="/instructor">Instructor</NavLink>
             </li>
-            <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+            <li className="hover:text-[rgb(37,180,123)] rounded text-base font-medium uppercase">
             <NavLink to="/classes">Class</NavLink>
             </li>
             {user ? (
               <>
-                <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+                <li className="hover:text-[rgb(37,180,123)] rounded text-base font-medium uppercase">
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
-                <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+                <li className="hover:text-[rgb(37,180,123)] rounded text-base font-medium uppercase">
                   <Link to="/dashboard"><img className="h-[50px] min-w-[50px] rounded-[100%]" src={user?.photoURL} alt="" /></Link>
                 </li>
-                <li onClick={handleLogOut} className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+                <li onClick={handleLogOut} className="hover:text-white py-2 px-8 bg-[#21B573] text-white rounded-full text-base font-medium uppercase">
                   <Link to="/login">Logout</Link>
-                </li>
-                <li  className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
-                  <button className="bg-transparent text-2xl font-semibold" onClick={handleTheme}><FaSun></FaSun></button>
                 </li>
 
               </>
             ) : (
               <>
                 {" "}
-                <li className="hover:text-[rgb(37,180,123)] rounded text-xl font-medium uppercase">
+                <li className="hover:text-white py-3 px-10 bg-[#21B573] text-white rounded-full text-base font-medium uppercase">
                   <Link to="/login">Login</Link>
                 </li>
               </>
@@ -89,6 +87,7 @@ const Header = ({handleTheme}) => {
           </ul>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import { FaSearch, FaServer } from "react-icons/fa";
 import "./GraphicsServices.css";
 const GraphicsServices = () => {
   return (
-    <div className="mx-[36px]">
+    <div className="lg:mx-[36px]">
       <div
         style={{
           backgroundImage: `url(${background})`,

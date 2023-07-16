@@ -18,16 +18,13 @@ const PopularSection = () => {
   });
   console.log(popularClass);
   return (
-    <div className=" mx-9">
-      <div className="py-10 px-[36px] ">
-        <h3 className="text-4xl mb-2 text-[#4C696D] font-bold">
-          Top Class
+    <div className="lg:w-[1140px] mx-auto">
+      <div className="lg:py-5 lg:px-[36px] ">
+        <h3 className="text-[36px]  mb-2 text-[#4C696D] font-bold text-center">
+        Online Courses
         </h3>
-        <h4 className="text-xl font-light text-[#0C0C0C]">
-          Discover the range of services provided by FliqaIndia
-        </h4>
       </div>
-      <div className="grid lg:grid-cols-3 gap-5">
+      <div className="grid lg:grid-cols-3 lg:gap-5">
         {popularClass
           ?.sort((a, b) => b.totalEnroll - a.totalEnroll)
           .map((singleClass, index) => (

@@ -19,15 +19,12 @@ const PopularInstructor = () => {
   console.log(topInstructor);
   return (
     <div>
-      <div className="py-10 px-[36px] ">
-        <h3 className="text-4xl mb-2 text-[#4C696D] font-bold">
+      <div className="lg:py-10 lg:px-[36px] px-3 my-5">
+        <h3 className="lg:text-4xl text-xl mb-2 text-[#4C696D] font-bold text-center">
           Top Instructor
         </h3>
-        <h4 className="text-xl font-light text-[#0C0C0C]">
-          Discover the range of services provided by FliqaIndia
-        </h4>
       </div>
-      <div className="grid lg:grid-cols-3 mx-9 gap-5">
+      <div className="grid lg:grid-cols-3 lg:mx-9 mx-3 gap-5">
         {topInstructor?.slice(0, 6)?.map((popularInstructor, index) => (
           <SinglePopularInstructor
             key={index}

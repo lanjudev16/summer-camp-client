@@ -67,7 +67,7 @@ const Dashboard = () => {
           <div>
             <Link to="/">
               <h2 className="text-[#A2A6C1] text-2xl mb-5 ">
-                <span className="text-[#7367F0]">Clean</span>simple
+                <span className="text-[#7367F0]"><img src="FliqaIndia-Logo1.png" alt="" /></span>
               </h2>
             </Link>
           </div>
